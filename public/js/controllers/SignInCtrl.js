@@ -4,5 +4,8 @@
 angular.module('SignInCtrl', []).controller('SignInController', function($scope) {
 
     $scope.tagline = 'New Controller working';
+    $scope.login = function(user){
+        console.log(user);
+    }
 
 });

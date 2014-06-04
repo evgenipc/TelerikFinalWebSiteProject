@@ -16,5 +16,21 @@ module.exports = function(app) {
     app.get('*', function(req, res) {
         res.sendfile('./public/index.html'); // load our public/index.html file
     });
+    app.post('/signin', function(req, res, next){
+           var auth = passport.authenticate('local', function(err, user){
+               if(err) return next(err);
+               if(!user){
+                   res.send({success:false})
+               }
+               req.login(user, function(err) {
+                  if(err)  return next(err);
+                  res.send({success:true,user:user});
+                   }
+               )
+
+           })
+            auth(req, res, next);
+        }
+    );
 
 };
