@@ -13,6 +13,7 @@ module.exports = function(app) {
 
     // frontend routes =========================================================
     // route to handle all angular requests
+    var passport = require('passport');
     app.get('*', function(req, res) {
         res.sendfile('./public/index.html'); // load our public/index.html file
     });

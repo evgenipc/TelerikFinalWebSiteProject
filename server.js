@@ -115,7 +115,9 @@ app.configure(function() {
     app.use(express.logger('dev')); 					// log every request to the console
     app.use(express.cookieParser());
     app.use(express.bodyParser()); 						// have the ability to pull information from html in POST
-    app.use(express.session());
+    app.use(express.session({secret: 'unicorn'}));
+    app.use(passport.initialize());
+    app.use(passport.session());
     app.use(express.methodOverride()); 					// have the ability to simulate DELETE and PUT
 });
 
