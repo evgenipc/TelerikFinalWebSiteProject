@@ -29,6 +29,16 @@ var userSchema = new mongoose.Schema({
         y: Number
     }
 });
+userSchema.method('authenticate', function(password){
+    if(generateHashedPassword(this.salt, password)==this.hashPass){
+        return true;
+    }
+    else {
+        return false;
+    }
+
+
+})
 
 var User = mongoose.model("User", userSchema);
 
