@@ -5,7 +5,6 @@
 
 // modules =================================================
 var express = require('express');
-var app     = express();
 var bodyParser = require("body-parser");
 var mongoose= require('mongoose');
 var MemoryStore = require('connect').session.MemoryStore;
@@ -13,6 +12,7 @@ var passport = require('passport');
 var cookieParser = require('cookie-parser');
 var LocalPassport= require('passport-local');
 var session = require('express-session');
+var app     = express();
 
 // configuration ===========================================
 var userSchema = new mongoose.Schema({
@@ -108,9 +108,6 @@ var port = process.env.PORT || 2244; // set our port
 mongoose.connect(db.url); // connect to our mongoDB database (uncomment after you enter in your own credentials in config/db.js)
 
 app.configure(function() {
-    app.use(express.cookieParser());
-    app.use(express.session(
-        {secret:"secret key", store:new MemoryStore()}));
     app.use(express.static(__dirname + '/public')); 	// set the static files location /public/img will be /img for users
     app.use(express.logger('dev')); 					// log every request to the console
     app.use(express.cookieParser());
@@ -125,7 +122,7 @@ app.configure(function() {
 require('./app/routes')(app); // configure our routes
 
 // start app ===============================================
-app.listen(port);										// startup our app at http://localhost:8080
+app.listen(port);										// startup our app at http://localhost:port
 console.log('Magic happens on port ' + port);
 // module.exports = mongoose.model(User1& , user1Schema);			// shoutout to the user
-exports = module.exports = app; 						// expose app
+exports= module.exports = app; //expose app
