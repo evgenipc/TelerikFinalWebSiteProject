@@ -12,6 +12,7 @@ var passport = require('passport');
 var cookieParser = require('cookie-parser');
 var LocalPassport= require('passport-local');
 var session = require('express-session');
+var crypto = require('crypto');
 var app     = express();
 
 // configuration ===========================================
@@ -31,10 +32,26 @@ var userSchema = new mongoose.Schema({
 
 var User = mongoose.model("User", userSchema);
 
-/*
+// Salting password
+
+function generateSalt(){
+    return crypto.randomBytes(128).toString('base64');
+}
+
+function generateHashedPassword(salt, pwd){
+    var hmac = crypto.createHmac('sha1', salt);
+    return hmac.update(pwd).digest('hex');
+
+}
+
+// including user
+
+ /*
+var salt =generateSalt()
 var user= new User({
     username: "nqkoi",
-    hashPass: "123456",
+    salt:salt,
+    hashPass: generateHashedPassword(salt,'evgeni'),
     email: "nqkoisi@abv.bg",
     updated: { type: Date, default: Date.now },
     age:     { type: 22, min: 18, max: 65 },
@@ -54,7 +71,7 @@ user.save(function (err) {
             }
         });
 });
-*/
+ */
 
 //     Passport part
 

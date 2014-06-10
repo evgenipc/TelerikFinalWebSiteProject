@@ -1,5 +1,7 @@
 <div ng-controller="SignInController">
-
+<div id="welcoming-the-user-div" ng-show="identity.isAuthenticated()">
+Welcome {{identity.currentUser.username}}
+</div>
 <div class="col-lg-5">
 <div class="well bs-component">
     <form class="form-horizontal">
