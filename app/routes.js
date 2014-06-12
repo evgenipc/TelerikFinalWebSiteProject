@@ -16,7 +16,10 @@ module.exports = function(app) {
     var passport = require('passport');
     app.get('*', function(req, res) {
         res.sendfile('./public/index.html'); // load our public/index.html file
+
     });
+
+
     app.post('/signin', function(req, res, next){
            var auth = passport.authenticate('local', function(err, user){
                if(err) return next(err);
@@ -33,5 +36,8 @@ module.exports = function(app) {
             auth(req, res, next);
         }
     );
-
-};
+    app.post('/logout', function(req, res, next){
+            req.logout();
+            res.end();
+            })
+        }

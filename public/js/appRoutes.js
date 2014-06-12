@@ -26,6 +26,12 @@ angular.module('appRoutes', []).config(['$routeProvider', '$locationProvider', f
         .when('/signin', {
             templateUrl: 'views/signin.html',
             controller: 'SignInController'
+        })
+
+
+        .when('/register', {
+            templateUrl: 'views/register.html',
+            controller: 'RegisterController'
         });
 
     $locationProvider.html5Mode(true);

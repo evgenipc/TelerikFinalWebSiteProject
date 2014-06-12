@@ -2,88 +2,7 @@
 <div id="welcoming-the-user-div" ng-show="identity.isAuthenticated()">
 Welcome {{identity.currentUser.username}}
 </div>
-<div class="col-lg-5">
-<div class="well bs-component">
-    <form class="form-horizontal">
-        <fieldset>
-            <legend>Create a new user</legend>
-            <div class="form-group">
-                <label for="inputEmail" class="col-lg-2 control-label">Email</label>
-                <div class="col-lg-10">
-                    <input type="text" class="form-control" id="inputEmail" placeholder="Email">
-                </div>
-            </div>
-            <div class="form-group">
-                <label for="username" class="col-lg-2 control-label">Username</label>
-                <div class="col-lg-10">
-                    <input type="text" class="form-control"  placeholder="Username">
-                </div>
-            </div>
-            <div class="form-group">
-                <label for="inputPassword" class="col-lg-2 control-label">Password</label>
-                <div class="col-lg-10">
-                    <input type="password" class="form-control"  placeholder="Password">
-                    <div class="checkbox">
-                        <label>
-                            <input type="checkbox"> Checkbox
-                        </label>
-                    </div>
-                </div>
-            </div>
-            <div class="form-group">
-                <label for="textArea" class="col-lg-2 control-label">Info about you</label>
-                <div class="col-lg-10">
-                    <textarea class="form-control" rows="3" id="textArea"></textarea>
-                    <span class="help-block">Education and work history is a vital information.</span>
-                </div>
-            </div>
-            <div class="form-group">
-                <label class="col-lg-2 control-label">Sex</label>
-                <div class="col-lg-10">
-                    <div class="radio">
-                        <label>
-                            <input type="radio" name="optionsRadios" id="optionsRadios1" value="boy" checked="">
-                            Boy
-                        </label>
-                    </div>
-                    <div class="radio">
-                        <label>
-                            <input type="radio" name="optionsRadios" id="optionsRadios2" value="girl">
-                            Girl
-                        </label>
-                    </div>
-                </div>
-            </div>
-            <div class="form-group">
-                <label for="select" class="col-lg-2 control-label">Known languages</label>
-                <div class="col-lg-10">
-                    <select class="form-control" id="select">
-                        <option>Javascript</option>
-                        <option>PHP</option>
-                        <option>C++</option>
-                        <option>Ruby</option>
-                    </select>
-                    <br>
-                    <select multiple="" class="form-control">
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
-                        <option>5</option>
-                    </select>
-                </div>
-            </div>
-            <div class="form-group">
-                <div class="col-lg-10 col-lg-offset-2">
-                    <button class="btn btn-default">Cancel</button>
-                    <button type="submit" class="btn btn-primary">Submit</button>
-                </div>
-            </div>
-        </fieldset>
-    </form>
-</div>
-</div>
-<div class="col-lg-5">
+<div class="col-lg-7" > <!-- ng-hide="identity.isAuthenticated()"-->
      <div class="well bs-component">
          <form class="form-horizontal">
              <fieldset>
@@ -110,6 +29,7 @@ Welcome {{identity.currentUser.username}}
                      <div class="col-lg-10 col-lg-offset-2">
                          <button class="btn btn-default">Cancel</button>
                          <button type="submit" class="btn btn-primary" ng-click="login(user)">Login</button>
+                         <button type="submit" class="btn btn-primary" ng-click="logout()">Logout</button>
                      </div>
                  </div>
              </fieldset>

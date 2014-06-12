@@ -19,6 +19,7 @@
     <script src="js/controllers/MainCtrl.js"></script>
     <script src="js/controllers/NerdCtrl.js"></script>
     <script src="js/controllers/SignInCtrl.js"></script>
+    <script src="js/controllers/RegisterCtrl.js"></script>
     <script src="js/services/NerdService.js"></script>
     <script src="js/services/identity.js"></script>
     <script src="js/services/auth.js"></script>
@@ -48,13 +49,20 @@
                 <input type="text" class="form-control col-lg-8" placeholder="Search">
             </form>
             <ul class="nav navbar-nav navbar-right">
-                <li id="pushleft"><a href="/signin">Sign In</a></li>
+                <li class="pushleft"><a href="/signin">Sign In</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li class="pushleft"><a href="/register">Register</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li class="pushleft"><a href="/signin"  ng-click="logout()">Sign Out</a></li> <!--//ng-show="identity.isAuthenticated()"-->
             </ul>
         </div>
     </div>
 
     <!-- ANGULAR DYNAMIC CONTENT -->
     <div ng-view></div>
+
 
 </div>
 </body>

@@ -1,0 +1,86 @@
+<div ng-controller="RegisterController">
+    <div id="welcoming-the-user-div" ng-show="identity.isAuthenticated()">
+        Welcome {{identity.currentUser.username}}
+    </div>
+    <div class="col-lg-7">
+        <div class="well bs-component">
+            <form class="form-horizontal">
+                <fieldset>
+                    <legend>Create a new user</legend>
+                    <div class="form-group">
+                        <label for="inputEmail" class="col-lg-2 control-label">Email</label>
+                        <div class="col-lg-10">
+                            <input type="text" class="form-control" ng-model="user1.email" id="inputEmail" placeholder="Email">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="username1" class="col-lg-2 control-label">Username</label>
+                        <div class="col-lg-10">
+                            <input type="text" class="form-control" ng-model="user1.username" id="username1" placeholder="Username">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="password1" class="col-lg-2 control-label">Password</label>
+                        <div class="col-lg-10">
+                            <input type="password" class="form-control" ng-model="user1.password" id="password1" placeholder="Password">
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox"> Checkbox
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="age" class="col-lg-2 control-label">Age</label>
+                        <div class="col-lg-10">
+                            <input type="text" class="form-control" ng-model="user1.age" id="age" placeholder="Age">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-lg-2 control-label">Sex</label>
+                        <div class="col-lg-10">
+                            <div class="radio">
+                                <label>
+                                    <input type="radio" name="optionsRadios" id="optionsRadios1" value="boy" checked="">
+                                    Boy
+                                </label>
+                            </div>
+                            <div class="radio">
+                                <label>
+                                    <input type="radio" name="optionsRadios" id="optionsRadios2" value="girl">
+                                    Girl
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="select" class="col-lg-2 control-label">Known languages</label>
+                        <div class="col-lg-10">
+                            <select class="form-control" id="select">
+                                <option>Javascript</option>
+                                <option>PHP</option>
+                                <option>C++</option>
+                                <option>Ruby</option>
+                            </select>
+                            <br>
+                            <select multiple="" class="form-control">
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>5</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-lg-10 col-lg-offset-2">
+                            <button class="btn btn-default">Cancel</button>
+                            <button type="submit" ng-click="register(user1)" class="btn btn-primary">Submit</button>
+                        </div>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+</div>
+

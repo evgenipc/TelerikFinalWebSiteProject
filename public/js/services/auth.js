@@ -10,7 +10,7 @@ auth.factory('auth', function($http, $q, identity){
 
 
             $http.post('/signin', user).success(function(response){
-                identity.currentUser=response.user;
+//                identity.currentUser=response.user;
                 if(response.success){
                     deferred.resolve(true);
                 }
@@ -23,7 +23,18 @@ auth.factory('auth', function($http, $q, identity){
             });
 
             return deferred.promise;
-    }
+    },
+        logout:function(){
+            var deferred=$q.defer();
+            $http.post('/logout').success(function() {
+                identity.currentUser = undefined;
+                    deferred.resolve();
+            })
+
+            return deferred.promise;
+
+
+        }
 
 
     }
