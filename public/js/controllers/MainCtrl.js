@@ -18,7 +18,7 @@ angular.module('MainCtrl', []).controller('MainController', function($scope, $ht
         })
 
     }
-    $scope.button=button;
+   // $scope.button=button;
     //$scope.window = $window;
 
 
