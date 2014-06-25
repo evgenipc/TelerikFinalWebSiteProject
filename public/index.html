@@ -14,6 +14,7 @@
     <!-- JS -->
     <script src="libs/angular/angular.min.js"></script>
     <script src="libs/angular-route/angular-route.min.js"></script>
+    <script src="libs/angular-resource/angular-resource.min.js"></script>
 
     <!-- ANGULAR CUSTOM -->
     <script src="js/controllers/MainCtrl.js"></script>
@@ -30,7 +31,7 @@
     <script src="libs/jquery/dist/jquery.js"></script>
     <script src="libs/bootstrap/dist/js/bootstrap.js"></script>
 </head>
-<body ng-app="sampleApp" ng-controller="NerdController">
+<body ng-app="sampleApp" ng-controller="MainController">
 <div class="container">
 
     <!-- HEADER -->
@@ -49,13 +50,10 @@
                 <input type="text" class="form-control col-lg-8" placeholder="Search">
             </form>
             <ul class="nav navbar-nav navbar-right">
-                <li class="pushleft"><a href="/signin">Sign In</a></li>
+                <li class="pushleft"><a href="/signin">{{button}}</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li class="pushleft"><a href="/register">Register</a></li>
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
-                <li class="pushleft"><a href="/signin"  ng-click="logout()">Sign Out</a></li> <!--//ng-show="identity.isAuthenticated()"-->
             </ul>
         </div>
     </div>

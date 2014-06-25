@@ -72,6 +72,19 @@ var user= new User({
     }
 });
 
+
+  var postSchema1 = mongoose.Schema({
+  username: String,
+  date: { type: Date, default: Date.now },
+  email: String,
+  add: String;
+  })
+
+  var Post1 = mongoose.model('Post1', postSchema1);
+
+
+
+
 user.save(function (err) {
     if (err) throw err;
     User.find()
@@ -159,6 +172,7 @@ app.configure(function() {
     app.use(passport.initialize());
     app.use(passport.session());
     app.use(express.methodOverride()); 					// have the ability to simulate DELETE and PUT
+    app.use(mongoose);
 });
 
 // routes ==================================================

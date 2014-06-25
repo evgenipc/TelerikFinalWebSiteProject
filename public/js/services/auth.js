@@ -4,17 +4,16 @@
 var auth = angular.module('auth', []);
 auth.factory('auth', function($http, $q, identity){
     return{
-        login: function(user){
-            var deferred=$q.defer();
+        login: function(user) {
+            var deferred = $q.defer();
 
-
-
-            $http.post('/signin', user).success(function(response){
-//                identity.currentUser=response.user;
-                if(response.success){
+            $http.post('/signin', user).success(function (response) {
+                if (response.success) {
+                    angular.extend(user, response.user);
+                    identity.currentUser = user;
                     deferred.resolve(true);
                 }
-                else{
+                else {
                     deferred.resolve(false);
                 }
 

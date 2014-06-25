@@ -1,7 +1,8 @@
 /**
  * Created by Evgeni on 6/12/2014.
  */
-angular.module('RegisterCtrl', []).controller('RegisterController', function($scope) { //, $http, $location,  identity, auth
+angular.module('RegisterCtrl', []).controller('RegisterController', function($scope,$window) { //, $http, $location,  identity, auth
+        $scope.window = $window;
         $scope.tagline = 'New Controller working';
         $scope.register = function(user1){
             console.log(user1);
