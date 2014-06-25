@@ -15,6 +15,7 @@ module.exports = function(app) {
     // route to handle all angular requests
     var passport = require('passport');
     var mongoose = require("mongoose");
+    var posts =[];
 
     var postSchema1 = mongoose.Schema({
         username: String,
@@ -36,8 +37,7 @@ module.exports = function(app) {
     var Post2 = mongoose.model('Post2', postSchema2);
 
 
-
-    var posta = new Post2({ username: 'Silence' });
+    //var posta = new Post2({ username: 'Silence' });
 
 
     app.get('*', function(req, res) {
@@ -83,9 +83,13 @@ module.exports = function(app) {
                     Post1.find()
                         .exec(function (err, units) {
                             if (err) throw err;
+                            posts =[];
                             for (var i = 0; i < units.length; i++) {
                                 console.log(units[i]);
+                                posts.push(units[i]);
                             }
+                            res.send(posts);
+                            console.log(posts);
                         });
                 });
         });
@@ -102,15 +106,6 @@ module.exports = function(app) {
                     }
                 });
         });
-    });
-    app.get('/nerd', function(req, res) {
-        Post1.find()
-            .exec(function (err, units) {
-                if (err) throw err;
-                console.log(units);
-               // res.json(units);
-            });
-
     });
 
 

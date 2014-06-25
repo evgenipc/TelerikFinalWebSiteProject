@@ -1,14 +1,14 @@
 
 <div class="jumbotron text-center">
-    <h1>Nerds and Proud</h1>
+    <h1>The place where your screams for help will be heard!</h1>
 
-    <p>{{ tagline }}</p>
+    <p>Post your problem, with the needed information for the helpers.</p>
 </div>
 <div class="col-lg-7" > <!-- ng-hide="identity.isAuthenticated()"-->
     <div class="well bs-component">
         <form class="form-horizontal">
             <fieldset>
-                <legend>Log in</legend>
+                <legend>Your SOS sign:</legend>
                 <div class="form-group">
                     <label for="username" class="col-lg-2 control-label">Username</label>
                     <div class="col-lg-10">
@@ -27,22 +27,26 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="comment" class="col-lg-2 control-label">Comment</label>
+                    <label for="comment" class="col-lg-2 control-label">Information</label>
                     <div class="col-lg-10">
-                        <input type="text" class="form-control input-lg" id="comment" placeholder="Comment" ng-model="postComment.comment">
+                        <input type="text" class="form-control input-lg" id="comment" placeholder="The kind of help needed." ng-model="postComment.comment">
                     </div>
                 </div>
 
                 <div class="form-group">
                     <div class="col-lg-10 col-lg-offset-2">
-                        <button class="btn btn-default">Cancel</button>
                         <button type="submit" class="btn btn-primary" ng-click="PostComment(postComment)">Post</button>
-                        <button type="submit" class="btn btn-primary" ng-click="logout()">Logout</button>
                     </div>
                 </div>
             </fieldset>
 
-
         </form>
     </div>
 </div>
+ <div class="col-lg-7">
+<blockquote ng-repeat="post in posts">
+    <p>{{post.add}}</p>
+    <small>{{post.username}}</small>
+</blockquote>
+ </div>
+        <!--{{posts[0].username}}-->

@@ -1,6 +1,8 @@
 <div ng-controller="SignInController">
-<div id="welcoming-the-user-div" ng-show="identity.isAuthenticated()">
+<div class="text-center" id="welcoming-the-user-div" ng-show="identity.isAuthenticated()">
+    <strong>
 Welcome  {{window.bootstrappedUserObject.username}}
+    </strong>
 </div>
 <div class="col-lg-7" > <!-- ng-hide="identity.isAuthenticated()"-->
      <div class="well bs-component">
@@ -41,10 +43,9 @@ Welcome  {{window.bootstrappedUserObject.username}}
             <h3 class="panel-title">Profile</h3>
         </div>
         <div class="panel-body">
-            Username: {{user.username}};
-            Email: {{user.email}};
-            Age: {{user.age}};
-
+            <p>Username: {{user.username}}</p>
+            <p>Email: {{user.email}}</p>
+            <p> Age: {{user.age}}</p>
         </div>
     </div>
    </div>

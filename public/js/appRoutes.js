@@ -29,6 +29,7 @@ angular.module('appRoutes', []).config(['$routeProvider', '$locationProvider', f
         })
 
 
+
         .when('/register', {
             templateUrl: 'views/register.html',
             controller: 'RegisterController'
